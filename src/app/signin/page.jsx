@@ -1,7 +1,7 @@
 
 "use client";
 import Link from 'next/link';
-import { Mail, Lock, Github, Loader2 } from 'lucide-react';
+import { Mail, Lock, Github, Loader2, KeyRound } from 'lucide-react';
 import { useContext, useState } from 'react';
 import { AuthContext } from '@/providers/AuthProvider';
 import toast from 'react-hot-toast';
@@ -10,14 +10,12 @@ import { useRouter } from 'next/navigation';
 export default function SignIn() {
   const { signIn, googleSignIn, githubSignIn } = useContext(AuthContext);
   const [isLoading, setIsLoading] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const router = useRouter();
 
   const handleSignIn = async (e) => {
       e.preventDefault();
-      const form = e.target;
-      const email = form.email.value;
-      const password = form.password.value;
-
       setIsLoading(true);
       try {
           await signIn(email, password);
@@ -51,6 +49,14 @@ const handleGithubSignIn = async () => {
       console.error(error);
       toast.error("Github sign in failed");
   }
+}
+
+const handleDemoLogin = () => {
+    setEmail("user@eventhub.com");
+    setPassword("123456");
+    toast('Credentials filled! Click "Sign in" to continue.', {
+        icon: '🔑',
+    });
 }
 
   return (
@@ -94,6 +100,13 @@ const handleGithubSignIn = async () => {
             <p className="mt-2 text-secondary/60">
               Please enter your details to sign in
             </p>
+             <button 
+                onClick={handleDemoLogin}
+                className="mt-4 px-4 py-2 bg-orange-50 text-primary hover:bg-orange-100 rounded-lg text-sm font-medium transition-colors flex items-center gap-2 mx-auto"
+            >
+                <KeyRound className="w-4 h-4" />
+                Use Demo Credentials
+            </button>
           </div>
 
           <form onSubmit={handleSignIn} className="mt-8 space-y-6">
@@ -108,6 +121,8 @@ const handleGithubSignIn = async () => {
                     name="email"
                     type="email"
                     required
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     className="block w-full pl-10 pr-3 py-3 border border-gray-200 rounded-xl text-secondary placeholder-secondary/30 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-white"
                     placeholder="you@example.com"
                   />
@@ -129,6 +144,8 @@ const handleGithubSignIn = async () => {
                     name="password"
                     type="password"
                     required
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                     className="block w-full pl-10 pr-3 py-3 border border-gray-200 rounded-xl text-secondary placeholder-secondary/30 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-white"
                     placeholder="••••••••"
                   />
