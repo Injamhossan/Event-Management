@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function Hero() {
   return (
-    <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-[#fdfaf9]">
+    <section className="h-screen relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-[#fdfaf9]">
       {/* Background Gradient Blob */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl pointer-events-none">
         <div className="absolute top-20 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
@@ -40,7 +40,7 @@ export default function Hero() {
               <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
             </svg>
           </Link>
-          <Link href="/create" className="w-full sm:w-auto px-8 py-4 bg-white border border-gray-200 text-secondary font-semibold rounded-full hover:bg-gray-50 transition-all active:scale-95 shadow-sm hover:shadow-md">
+          <Link href="/signup" className="w-full sm:w-auto px-8 py-4 bg-white border border-gray-200 text-secondary font-semibold rounded-full hover:bg-gray-50 transition-all active:scale-95 shadow-sm hover:shadow-md">
             Create Event
           </Link>
         </div>

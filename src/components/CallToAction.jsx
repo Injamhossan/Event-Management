@@ -30,7 +30,7 @@ export default function CallToAction() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 w-full justify-center">
-              <Link href="/create" className="px-8 py-4 bg-primary text-white font-semibold rounded-full hover:bg-primary/90 transition-all shadow-lg shadow-primary/25">
+              <Link href="/signup" className="px-8 py-4 bg-primary text-white font-semibold rounded-full hover:bg-primary/90 transition-all shadow-lg shadow-primary/25">
                 Get Started Free
               </Link>
               <Link href="/contact" className="px-8 py-4 bg-white text-secondary font-semibold rounded-full hover:bg-gray-50 transition-all">
