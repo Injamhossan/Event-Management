@@ -1,10 +1,10 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fdfaf9; /* Warm off-white */
-  --foreground: #2b2624; /* Very dark warm brown for body text */
-  --primary: #df874d;    /* Terracotta Orange */
-  --secondary: #3e3431;  /* Dark Brown for headings/accents */
+  --background: #fdfaf9; 
+  --foreground: #2b2624;  
+  --primary: #df874d;     
+  --secondary: #3e3431;  
 }
 
 @font-face {
